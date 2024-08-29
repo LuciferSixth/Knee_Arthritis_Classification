@@ -1,6 +1,4 @@
-pandas
-plotly
-streamlit
-yfinance
-pandas-datareader
-prophet
+streamlit==1.22.0
+torch==2.0.1
+torchvision==0.15.2
+Pillow==9.5.0
