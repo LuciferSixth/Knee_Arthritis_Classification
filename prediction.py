@@ -1,3 +1,4 @@
+# Definition of pred_class function
 from typing import List, Tuple
 import torch
 import torchvision.transforms as T
@@ -15,12 +16,11 @@ def pred_class(model: torch.nn.Module, image: Image.Image, class_names: List[str
     transformed_image = image_transform(image).unsqueeze(dim=0)
 
     # Set the model to evaluation mode
-    model.eval().half()
+    model.eval()
     with torch.no_grad():
         # Make a prediction
-        target_image_pred = model(transformed_image).half()
+        target_image_pred = model(transformed_image)
         target_image_pred_probs = torch.softmax(target_image_pred, dim=1)
-        target_image_pred_label = torch.argmax(target_image_pred_probs, dim=1)
 
     # Convert prediction probabilities to numpy array
     prob = target_image_pred_probs.cpu().numpy()
