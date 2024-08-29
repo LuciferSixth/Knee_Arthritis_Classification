@@ -21,7 +21,7 @@ if uploaded_image is not None:
     image = Image.open(uploaded_image).convert('RGB')
     st.image(image, caption='Uploaded Image', use_column_width=True)
     
-    class_name = ['Normal', 'Moderate', 'Severe']
+    class_name = ['Normal', 'Mild', 'Severe']
 
     if st.button('Predict'):
         # Prediction class
